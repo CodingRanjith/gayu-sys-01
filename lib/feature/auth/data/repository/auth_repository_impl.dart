@@ -66,7 +66,7 @@ class AuthRepositoryImpl implements AuthRepository {
       return AsyncResponseHandler.left(
         AuthFailure(message: "Exception Occured"),
       );
-    } on Exception catch (e) {
+    } on Exception {
       return AsyncResponseHandler.left(
         AuthFailure(message: 'Authentication Failure'),
       );

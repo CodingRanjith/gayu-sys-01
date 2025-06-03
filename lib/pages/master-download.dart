@@ -73,12 +73,18 @@ class MasterDownload extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     // Text the Download Master
-                    const Text(
-                      'Download Master',
-                      style: TextStyle(
-                        color: Color.fromRGBO(214, 24, 24, 1),
-                        fontSize: 20,
-                        decoration: TextDecoration.none,
+                    
+                     TextButton(
+                      onPressed: (){
+                       
+                      },
+                      child: Text(
+                        'Download Master',
+                        style: TextStyle(
+                          color: Color.fromRGBO(214, 24, 24, 1),
+                          fontSize: 20,
+                          decoration: TextDecoration.none,
+                        ),
                       ),
                     ),
                   ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:newsee/AppSamples/ReactiveForms/forms.dart';
 
 /*
@@ -60,11 +61,11 @@ void moreActionSheet(BuildContext context, String action) {
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
-                                Icon(
-                                  Icons.badge_sharp,
-                                  color: const Color.fromARGB(255, 198, 27, 27),
-                                  size: 30,
-                                ),
+                                  SvgPicture.asset(
+                                      'assets/Retail.svg',
+                                      height: 40,
+                                      width: 40,
+                                    ),       
                                 Text(
                                   'Retail Loan',
                                   style: TextStyle(
@@ -94,11 +95,11 @@ void moreActionSheet(BuildContext context, String action) {
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
-                                Icon(
-                                  Icons.agriculture,
-                                  color: const Color.fromARGB(252, 198, 27, 27),
-                                  size: 30,
-                                ),
+                                SvgPicture.asset(
+                                      'assets/Agri_Loan.svg',
+                                      height: 40,
+                                      width: 40,
+                                    ),
                                 Text(
                                   'Agree Loan',
                                   style: TextStyle(
@@ -128,11 +129,11 @@ void moreActionSheet(BuildContext context, String action) {
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
-                                Icon(
-                                  Icons.business,
-                                  color: const Color.fromARGB(255, 198, 27, 27),
-                                  size: 30,
-                                ),
+                               SvgPicture.asset(
+                                      'assets/MSME.svg',
+                                      height: 40,
+                                      width: 40,
+                                    ),
                                 Text(
                                   'MSME Loan',
                                   style: TextStyle(
@@ -174,11 +175,11 @@ void moreActionSheet(BuildContext context, String action) {
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
-                                Icon(
-                                  Icons.home_filled,
-                                  color: const Color.fromARGB(255, 198, 27, 27),
-                                  size: 30,
-                                ),
+                                SvgPicture.asset(
+                                      'assets/Home_Loan.svg',
+                                      height:50,
+                                      width: 50,
+                                    ),
                                 Text(
                                   'Home Loan',
                                   style: TextStyle(
@@ -203,11 +204,11 @@ void moreActionSheet(BuildContext context, String action) {
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
-                                Icon(
-                                  Icons.car_rental_rounded,
-                                  color: const Color.fromARGB(255, 198, 27, 27),
-                                  size: 30,
-                                ),
+                               SvgPicture.asset(
+                                      'assets/Vehicle_Loan.svg',
+                                      height: 50,
+                                      width: 50,
+                                    ),
                                 Text(
                                   'Vehicle Loan',
                                   style: TextStyle(
@@ -236,17 +237,20 @@ void moreActionSheet(BuildContext context, String action) {
                               padding: const EdgeInsets.all(15),
                               child: Column(
                                 children: [
-                                  Icon(
-                                    Icons.card_giftcard,
-                                    color: const Color.fromARGB(255, 198, 27, 27),
-                                    size: 30,
-                                  ),
-                                  Text(
-                                    'Gold Loan',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.normal,
+                                 SvgPicture.asset(
+                                      'assets/Gold_Loan.svg',
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Text(
+                                      'Gold Loan',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                     ),
                                   ),
                                 ],
