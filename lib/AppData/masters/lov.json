@@ -1,0 +1,96 @@
+{
+    "Setupmaster":{
+    
+        "Listofvalues": [
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "1",
+                "optDesc": "River"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "10",
+                "optDesc": "Tube Wells"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "2",
+                "optDesc": "Canal"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "3",
+                "optDesc": "Pump"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "4",
+                "optDesc": "Well"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "6",
+                "optDesc": "Rainfed"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "7",
+                "optDesc": "Surface Water"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "8",
+                "optDesc": "Municipal Water"
+            },
+            {
+                "Header": "IrrigationNew",
+                "optvalue": "9",
+                "optDesc": "Tanks"
+            },
+            {
+                "Header": "CustType",
+                "optvalue": "001",
+                "optDesc": "NTB"
+            },
+            {
+                "Header": "CustType",
+                "optvalue": "002",
+                "optDesc": "ETB"
+            },
+            {
+                "Header": "CustType",
+                "optvalue": "020101",
+                "optDesc": "020101:NON PERSONAL-GOVERNMENT-CENTRAL"
+            },
+            {
+                "Header": "CustType",
+                "optvalue": "I",
+                "optDesc": "Individual"
+            },
+            {
+                "Header": "CustType",
+                "optvalue": "N",
+                "optDesc": "Non Individual"
+            },
+            {
+                "Header": "Gender",
+                "optvalue": "1",
+                "optDesc": "Female"
+            },
+            {
+                "Header": "Gender",
+                "optvalue": "2",
+                "optDesc": "Male"
+            },
+            {
+                "Header": "Gender",
+                "optvalue": "5",
+                "optDesc": "Transgender"
+            }
+        ]
+    },
+     "errorCode": "000",
+    "errorDesc": "Success",
+    "version": "2"
+
+}
