@@ -15,15 +15,13 @@ class TableKeysProductSchema {
   static const String optionValue = 'optionValue';
   static const String optionDesc = 'optionDesc';
   static const String optionId = 'optionId';
-  static const String version = 'version';
 
   static const String createTableQuery = '''
                     CREATE TABLE IF NOT EXISTS $tableName(
             $idColumn INTEGER PRIMARY KEY AUTOINCREMENT,
             $optionValue TEXT,
             $optionDesc TEXT,
-            $optionId TEXT,
-            $version TEXT
+            $optionId TEXT
 )
   ''';
 }

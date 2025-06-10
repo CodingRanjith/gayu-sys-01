@@ -12,6 +12,8 @@ class LeadTileCard extends StatelessWidget {
   final String subtitle;
   final IconData icon;
   final Color color;
+  final String type;
+  final String product;
   final String phone;
   final String createdon;
   final String location;
@@ -23,6 +25,8 @@ class LeadTileCard extends StatelessWidget {
     required this.subtitle,
     required this.icon,
     this.color = Colors.teal,
+    required this.type,
+    required this.product,
     required this.phone,
     required this.createdon,
     required this.location,
@@ -59,7 +63,7 @@ class LeadTileCard extends StatelessWidget {
                             fontSize: 16,
                           ),
                         ),
-                        Text(subtitle, style: TextStyle(color: Colors.grey)),
+                        Text(subtitle, style: TextStyle(color: Colors.black)),
                       ],
                     ),
                   ),
@@ -68,6 +72,13 @@ class LeadTileCard extends StatelessWidget {
                     size: 16,
                     color: Colors.black,
                   ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(child: iconWithLabel(Icons.person_2_outlined, type)),
+                  Expanded(child: iconWithLabel(Icons.badge_outlined, product)),
                 ],
               ),
               const SizedBox(height: 12),

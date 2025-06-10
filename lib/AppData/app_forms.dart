@@ -17,4 +17,18 @@ class AppForms {
     'mobilenumber': FormControl<String>(validators: [Validators.required]),
     'productinterest': FormControl<String>(validators: [Validators.required]),
   });
+
+  static FormGroup DEDUPE_DETAILS_FORM = FormGroup({
+    'title': FormControl<String>(validators: [Validators.required]),
+    'firstname': FormControl<String>(validators: [Validators.required]),
+    'lastname': FormControl<String>(validators: [Validators.required]),
+    'mobilenumber': FormControl<String>(validators: []),
+    'pan': FormControl<String>(validators: []),
+    'aadhaar': FormControl<String>(validators: [Validators.required]),
+  });
+
+
+  static FormGroup CIF_DETAILS_FORM = FormGroup({
+    'cifid': FormControl<String>(validators: [Validators.required]),
+  });
 }

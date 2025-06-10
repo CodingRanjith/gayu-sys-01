@@ -123,29 +123,29 @@ void reachUsActionSheet(
                 ],
               ),
             ),
-            //location
-            CupertinoActionSheetAction(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Row(
-                children: [
-                  Icon(
-                    icon3,
-                    color: const Color.fromARGB(255, 3, 9, 110),
-                    size: 35,
-                  ),
-                  SizedBox(width: 20),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      heading3,
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // //location
+            // CupertinoActionSheetAction(
+            //   onPressed: () {
+            //     Navigator.pop(context);
+            //   },
+            //   child: Row(
+            //     children: [
+            //       Icon(
+            //         icon3,
+            //         color: const Color.fromARGB(255, 3, 9, 110),
+            //         size: 35,
+            //       ),
+            //       SizedBox(width: 20),
+            //       Padding(
+            //         padding: const EdgeInsets.all(10),
+            //         child: Text(
+            //           heading3,
+            //           style: TextStyle(color: Colors.black, fontSize: 20),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
   );

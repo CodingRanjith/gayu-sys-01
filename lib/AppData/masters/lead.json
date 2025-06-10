@@ -1,0 +1,50 @@
+{
+  
+  "responseData":{
+    "LeadAddressDetails": {
+        "ldRowId": 4859901,
+        "lldLoanamtRequested": 100000,
+        "lpdCreatedBy": "3231",
+        "lpdCreatedOn": "May 28, 2025",
+        "lpdModifiedBy": "3231",
+        "lpdModifiedOn": "May 28, 2025",
+        "lleadid": "LEAD/202526/00008087",
+        "lleadtitle": "3",
+        "lleademailidEnc": "WtupdsYbNCwJ9NNd9M3RNQ==",
+        "lleaddob": "Feb 19, 16, 12:00:00 AM",
+        "lleadmobnoEnc": "VMWc57weWZ7U/VuYSwz5Jg==",
+        "lleadpannoEnc": "nX4aAMb2qlIIAI9BX7maeQ==",
+        "lleadadharnoEnc": "FplIXZiIPKwVe+tVL0CJIw==",
+        "lleadrecievedflag": "N",
+        "lldCbsid": "1234456",
+        "lldinwardflag": "N",
+        "lldinwardno": "INW/202526/00008087",
+        "lleadpcmodeflag": "O",
+        "otheridnoEnc": "WtupdsYbNCwJ9NNd9M3RNQ==",
+        "lldorgid": "12",
+        "lldlevel": "23",
+        "lldproposalcretaed": "N",
+        "lfProdId": "10",
+        "lleadGuaIsCreated": "N",
+        "lldCbscusttype": "false",
+        "lldStatusFlag": "Y",
+        "lleadCoappIsCreated": "N",
+        "lleadexistingcustomer": "N"
+    },
+    "LeadDetails": [
+        {
+            "ldaddRowId": 4859900,
+            "ldaddleadid": "LEAD/202526/00008087",
+            "addresstype": "9",
+            "addressline1": "1/124, NORTH STREET",
+            "addressline2": "ANUMANALLUR, PAPANASAM",
+            "state": "38",
+            "city": "0001",
+            "area": "100",
+            "pincode": "612301"
+        }
+    ]
+  },
+    "ErrorMessage": "Lead details have been fetched successfully",
+    "Success": true
+}

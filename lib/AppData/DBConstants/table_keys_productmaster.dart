@@ -32,4 +32,21 @@ class TableKeysProductMaster {
   static const String tenorTo = 'prdTenorTo';
   static const String moratoriam = "prdMoratoriumMax";
   static const String version = 'version';
+
+  
+  static const String createTableQuery = '''
+                    CREATE TABLE IF NOT EXISTS $tableName(
+            $idColumn INTEGER PRIMARY KEY AUTOINCREMENT,
+            $productCode TEXT,
+            $productDescription TEXT,
+            $amountFromRange TEXT,
+            $amountToRange TEXT,
+            $mainCatId TEXT,
+            $subCatId TEXT,
+            $tenorFrom TEXT,
+            $tenorTo TEXT,
+            $moratoriam TEXT,
+            $version TEXT
+)
+  ''';
 }

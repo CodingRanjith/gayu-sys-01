@@ -7,7 +7,7 @@
  */
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsee/Model/api_core/AsyncResponseHandler.dart';
+import 'package:newsee/core/api/AsyncResponseHandler.dart';
 import 'package:newsee/Model/login_request.dart';
 import 'package:newsee/feature/auth/domain/model/user/auth_response_model.dart';
 import 'package:newsee/feature/auth/domain/repository/auth_repository.dart';

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsee/AppData/fake_loginservice.dart';
 import 'package:newsee/Model/login_request.dart';
 import 'package:newsee/Model/login_response.dart';
+
 part 'login_event.dart';
 part 'login_state.dart';
 
@@ -13,7 +14,6 @@ part 'login_state.dart';
 @props          :   possible props Future<LoginResponse> callLogin
 
  */
-
 
 final class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginRequest loginRequest;

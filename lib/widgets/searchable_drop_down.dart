@@ -8,32 +8,57 @@
 
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newsee/feature/loanproductdetails/presentation/bloc/loanproduct_bloc.dart';
+import 'package:newsee/feature/masters/domain/modal/lov.dart';
+import 'package:newsee/feature/masters/domain/modal/product.dart';
+import 'package:newsee/feature/masters/domain/modal/product_master.dart';
+import 'package:newsee/feature/masters/domain/modal/productschema.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class SearchableDropdown extends StatelessWidget {
+class SearchableDropdown<T> extends StatelessWidget {
   final String controlName;
   final String label;
-  final List<String> items;
-
-  const SearchableDropdown({
+  final List<T> items;
+  /* 
+  @modifiedby   : karthick.d  05/06/2025
+  @desc         : this is a changelister function that handle dropdown option change
+  */
+  final Function? onChangeListener;
+  SearchableDropdown({
     required this.controlName,
     required this.label,
     required this.items,
+    this.onChangeListener,
   });
 
+  String itemvalueMapper(T item) {
+    if (item is ProductSchema) {
+      return item.optionDesc;
+    } else if (item is Product) {
+      return item.lsfFacDesc;
+    } else if (item is Lov) {
+      return item.optDesc;
+    } else {
+      return '';
+    }
+  }
+
+  _onChangeListener(T? val) => onChangeListener!(val);
   @override
   Widget build(BuildContext context) {
-    return ReactiveFormField<String, String>(
+    return ReactiveFormField<String, T>(
       formControlName: controlName,
       validationMessages: {
         ValidationMessage.required: (error) => '$label is required',
       },
+
       builder: (field) {
         return Padding(
           padding: const EdgeInsets.all(12),
-          child: DropdownSearch<String>(
+          child: DropdownSearch<T>(
             items: items,
-            selectedItem: field.value,
+            itemAsString: (item) => itemvalueMapper(item),
             dropdownDecoratorProps: DropDownDecoratorProps(
               dropdownSearchDecoration: InputDecoration(
                 labelText: label,
@@ -59,7 +84,13 @@ class SearchableDropdown extends StatelessWidget {
                 ),
               ),
             ),
-            onChanged: (value) => field.didChange(value),
+            onChanged: (val) {
+              if (val != null) {
+                print('field value => ${itemvalueMapper(val)}');
+              }
+
+              _onChangeListener(val);
+            },
           ),
         );
       },

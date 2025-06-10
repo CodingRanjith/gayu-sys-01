@@ -6,7 +6,7 @@ class FloatingActionBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        context.goNamed('newlead');
+        context.push('/newlead');
         // ScaffoldMessenger.of(context).showSnackBar(
         //   SnackBar(content: Text("Floating Action Button Pressed")),
         // );

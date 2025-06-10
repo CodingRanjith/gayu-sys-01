@@ -7,6 +7,7 @@ import 'reachus.dart';
 import 'more.dart';
 import 'login_mpin.dart';
 
+
 /*
 author : Gayathri B 
 description : A stateless widget that serves as the main login screen for the app. It offers
@@ -37,7 +38,7 @@ class LoginpageView extends StatelessWidget {
             Positioned.fill(
             
             
-            child: SvgPicture.asset('assets/app_background_1.svg', fit: BoxFit.cover,),
+            child: SvgPicture.asset('assets/app_background_2.svg', fit: BoxFit.cover,),
             
             
             ),
@@ -105,77 +106,77 @@ class LoginpageView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
 
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                    icon: SvgPicture.asset(
-                                        'assets/Retail.svg',
-                                        height: 40,
-                                        width: 40,
-                                      ),                                iconSize: 40,
-                                  color: Colors.amber,
-                                ),
-                                Text(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                  icon: SvgPicture.asset(
+                                      'assets/Retail_loan.svg',
+                                      height: 40,
+                                      width: 40,
+                                    ), iconSize: 40,
+                                color: Colors.amber,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 0),
+                                child: Text(
                                   'Retail Loan',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 14,
                                   ),
                                 ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                        icon: SvgPicture.asset(
-                                        'assets/Agri_Loan.svg',
-                                        height: 40,
-                                        width: 40,
-                                      ),                                  iconSize: 40,
-                                  color: Colors.blue,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                      icon: SvgPicture.asset(
+                                      'assets/Agri_Loan.svg',
+                                      height: 40,
+                                      width: 40,
+                                    ),                                  iconSize: 40,
+                                color: Colors.blue,
+                              ),
+                              Text(
+                                'Agree Loan',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
                                 ),
-                                Text(
-                                  'Agree Loan',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                  ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                      icon: SvgPicture.asset(
+                                      'assets/MSME.svg',
+                                      height: 40,
+                                      width: 40,
+                                    ),                                 
+                                  iconSize: 40,
+                                color: Colors.pink,
+                              ),
+                              Text(
+                                'MSME Loan',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
                                 ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                        icon: SvgPicture.asset(
-                                        'assets/MSME.svg',
-                                        height: 40,
-                                        width: 40,
-                                      ),                                 
-                                    iconSize: 40,
-                                  color: Colors.pink,
-                                ),
-                                Text(
-                                  'MSME Loan',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -238,7 +239,7 @@ class LoginpageView extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 150),
+            SizedBox(height: 80),
 
             // Access to additional options like Maintenance, Reach Us, and More
             Row(

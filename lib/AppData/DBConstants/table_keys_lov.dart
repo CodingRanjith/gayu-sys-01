@@ -16,7 +16,6 @@ class TableKeysLov {
   static const String _optValue = 'optvalue';
   static const String _optDesc = 'optDesc';
   static const String _optCode = 'optCode';
-  static const String _version = 'version';
 
   static const String createTableQuery = '''
                 CREATE TABLE IF NOT EXISTS ${TableKeysLov.tableName}(
@@ -24,8 +23,7 @@ class TableKeysLov {
             ${TableKeysLov._header} TEXT,
             ${TableKeysLov._optValue} TEXT,
             ${TableKeysLov._optDesc} TEXT,
-            ${TableKeysLov._optCode} TEXT,
-            ${TableKeysLov._version} TEXT
+            ${TableKeysLov._optCode} TEXT
                       )
 
      ''';

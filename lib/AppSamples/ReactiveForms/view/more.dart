@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:newsee/AppSamples/ReactiveForms/forms.dart';
 
 /*
 
@@ -16,13 +15,13 @@ import 'package:newsee/AppSamples/ReactiveForms/forms.dart';
  */
 
 //Define the function take context pharameters
+
 void moreActionSheet(BuildContext context, String action) {
   //popup the action sheet
   showCupertinoModalPopup<void>(
     context: context,
     builder:
         (BuildContext context) => CupertinoActionSheet(
-          //title the action sheet
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -62,7 +61,7 @@ void moreActionSheet(BuildContext context, String action) {
                             child: Column(
                               children: [
                                   SvgPicture.asset(
-                                      'assets/Retail.svg',
+                                      'assets/Retail_loan.svg',
                                       height: 40,
                                       width: 40,
                                     ),       
@@ -239,8 +238,8 @@ void moreActionSheet(BuildContext context, String action) {
                                 children: [
                                  SvgPicture.asset(
                                       'assets/Gold_Loan.svg',
-                                      height: 50,
-                                      width: 50,
+                                      height: 45,
+                                      width: 45,
                                     ),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 10),
@@ -303,7 +302,7 @@ void moreActionSheet(BuildContext context, String action) {
                               Padding(
                                 padding: const EdgeInsets.only(left: 12),
                                 child: Text(
-                                  'Manage e-Mandates',
+                                  'Service One',
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.black,
@@ -337,7 +336,7 @@ void moreActionSheet(BuildContext context, String action) {
                               Padding(
                                 padding: const EdgeInsets.only(left: 12),
                                 child: Text(
-                                  'Update Employer Details',
+                                  'Service Two',
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.black,

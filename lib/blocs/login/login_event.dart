@@ -40,3 +40,9 @@ final class LoginSuccess extends LoginEvent {}
 // when click login api  responded with error - LoginError event dispatched
 
 final class LoginError extends LoginEvent {}
+
+// wehn click passwrodSecure event password will be vissible or Hidden
+
+final class LoginSecurePassword extends LoginEvent {
+  
+}

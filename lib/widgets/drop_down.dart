@@ -13,6 +13,7 @@ Widget Dropdown({
   required String controlName,
   required String label,
   required List<String> items,
+  Function? onchange
 }) {
   return Padding(
     padding: EdgeInsets.all(16),
@@ -20,6 +21,10 @@ Widget Dropdown({
       formControlName: controlName,
       validationMessages: {
         ValidationMessage.required: (error) => '$label is required',
+      },
+      onChanged: (value) {
+        print("onchanging here, $value");
+        onchange == null ? null : onchange(value);
       },
       decoration: InputDecoration(
         label: RichText(

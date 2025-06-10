@@ -9,15 +9,19 @@ import 'package:flutter/material.dart';
 
 class ProgressBarExample extends StatelessWidget {
   // define the progressValue
-  // total 
-  // Math.round(state.total / state.current) 
- /*
+  // total
+  // Math.round(state.total / state.current)
+  /*
   class DownloadProgressState{
 
     double? downloadedPercentage;
+
+
   }
 */
-  final double progressValue = 0.6; // downloadedPercentage
+  final double progressValue;
+  ProgressBarExample({required this.progressValue});
+  // downloadedPercentage
 
   @override
   Widget build(BuildContext context) {

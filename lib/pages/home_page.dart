@@ -5,6 +5,7 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:newsee/AppData/globalconfig.dart';
 import '../widgets/side_navigation.dart';
 import '../widgets/bottom_navigation.dart';
 import '../widgets/floating_action.dart';

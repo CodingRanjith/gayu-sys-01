@@ -2,11 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:newsee/AppData/globalconfig.dart';
 import 'package:newsee/AppSamples/ReactiveForms/config/appconfig.dart';
 import 'package:newsee/AppSamples/ReactiveForms/view/loginwithblocprovider.dart';
 import 'package:newsee/Model/login_request.dart';
-// import 'package:newsee/blocs/login/login_bloc.dart';
+import 'package:newsee/Utils/masterversioncheck.dart';
+import 'package:newsee/blocs/login/login_bloc.dart';
+import 'package:newsee/core/api/AsyncResponseHandler.dart';
 import 'package:newsee/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:newsee/feature/masters/domain/modal/master_version.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /*
@@ -80,21 +84,47 @@ class LoginpageWithAC extends StatelessWidget {
     }
 
     return BlocListener<AuthBloc, AuthState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         switch (state.authStatus) {
           case AuthStatus.success:
-            print('LoginStatus.success...');
-            context.goNamed('home');
+            print('LoginStatus.success... ${state.authResponseModel}');
+            AsyncResponseHandler<bool, List<MasterVersion>>
+            masterVersionCheckResponseHandler = await compareVersions(
+              Globalconfig.masterVersionMapper,
+            );
+            print(
+              'masterVersionCheckResponseHandler.isLeft => ${masterVersionCheckResponseHandler.isLeft()}',
+            );
+
+            print(
+              'masterVersionCheckResponseHandler.isRight => ${masterVersionCheckResponseHandler.isRight()}',
+            );
+            /* 
+              important : masterversion check based masterdownload happeing here
+                          Asynresponsehandler response eigther return List<MasterVersion>
+                          if masterupdate is required and list of mastertype that haev updated
+                          master version will be returned
+                          otherwise null will be returned in left
+
+             */
+            if (masterVersionCheckResponseHandler.isLeft()) {
+              context.goNamed('masters');
+            } else if (masterVersionCheckResponseHandler.isRight()) {
+              if (masterVersionCheckResponseHandler.right.isNotEmpty) {
+                context.goNamed('masters');
+              } else {
+                context.goNamed('home');
+              }
+            }
           case AuthStatus.loading:
             print('LoginStatus.loading...');
-            context.goNamed('home');
 
           case AuthStatus.init:
             print('LoginStatus.init...');
 
           case AuthStatus.failure:
-            print('LoginStatus.error...');
             context.goNamed('home');
+            print('LoginStatus.error...');
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage ?? 'Login Failed...')),
             );

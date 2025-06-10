@@ -26,3 +26,9 @@ purpose : to integrated and test new-login-ui created by developer @gayathri.b
 
 this branch contains UI and features with regards to New Lead - Detalis capturing
 which includes forms for sourcing details , personal details , address details , loan details form design
+
+# Ganesh Real Device Testing Comment
+flutter run -d RZ8TA0WL7KW
+
+
+git pull https://github.com/KarthickTechie/newsee.git download-progress-indicator

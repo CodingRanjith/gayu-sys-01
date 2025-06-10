@@ -3,4 +3,5 @@ class ApiConstants {
   static const String master_key_lov = 'Listofvalues';
   static const String master_key_products = 'ProductMaster';
   static const String master_key_productschema = 'ProductScheme';
+  static const String master_key_statecity = 'StateCityMaster';
 }

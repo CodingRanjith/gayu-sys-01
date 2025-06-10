@@ -1,1 +1,1 @@
-enum MasterTypes { lov, products, productschema }
+enum MasterTypes { lov, products, productschema, statecitymaster, success }
