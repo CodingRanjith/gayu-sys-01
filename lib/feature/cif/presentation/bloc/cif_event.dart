@@ -12,9 +12,9 @@ abstract class CifEvent {
   const CifEvent();
 }
 
-//Trigger First Event SearchCif 
+//Trigger First Event SearchCif
 
-class SearchCifEvent extends CifEvent {
+class SearchingCifEvent extends CifEvent {
   final CIFRequest request;
-  const SearchCifEvent({required this.request});
+  const SearchingCifEvent({required this.request});
 }

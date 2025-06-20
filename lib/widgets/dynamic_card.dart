@@ -111,10 +111,14 @@ class InfoCardWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           iconWithLabel(label.icon, label.label),
-                          Text(
-                            label.value,
-                            style: const TextStyle(fontSize: 12),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 25),
+                            child: Text(
+                              label.value,
+                              style: const TextStyle(fontSize: 14),
+                            ),
                           ),
+
                           const SizedBox(height: 4),
                         ],
                       ),
@@ -130,9 +134,9 @@ class InfoCardWidget extends StatelessWidget {
   Widget iconWithLabel(IconData iconData, String label) {
     return Row(
       children: [
-        Icon(iconData, size: 16),
+        Icon(iconData, size: 14),
         const SizedBox(width: 6),
-        Flexible(child: Text(label, style: const TextStyle(fontSize: 12))),
+        Flexible(child: Text(label, style: const TextStyle(fontSize: 14))),
       ],
     );
   }

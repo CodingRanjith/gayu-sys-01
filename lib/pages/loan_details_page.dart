@@ -26,46 +26,6 @@ class LoanDetailsPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SearchableDropdown(
-                  controlName: 'maincategory',
-                  label: 'Main Category',
-                  items: [
-                    'Car Loan',
-                    'Cash Loan',
-                    'Combo Car Loan',
-                    'Corporate Car Loan',
-                    'Corporate Home Loan',
-                    'Educational Loan',
-                    'Gold Loan',
-                    'Gold Loan Staff Retail',
-                    'Housing Loan',
-                    'Loan Against Deposit for Individuals',
-                    'Loan Against Deposit for Non Individuals',
-                    'MSME PM VISHWAKARMA',
-                    'PMSVANIDHI WC',
-                    'pensioner Loan',
-                    'Property Loan',
-                    'Rent Loan',
-                    'Security Loan',
-                    'Shopper Loan',
-                    'Simplified Gold Loan',
-                    'Simplified Gold Loan MSME',
-                    'Staff Housing Loan',
-                    'Staff Overdraft New',
-                    'Staff Vehicle Loan',
-                    'Term Loan UCO',
-                    'Term Loan UCO Bank',
-                    'Topup Housing Loan',
-                    'Two Wheeler Loan',
-                    'UCO Electric Vehicle Combo Car Loan',
-                    'UCO Electric Vehicle EV Loan',
-                    'UCO Elite Two Wheeler Loan',
-                    'UCO GTRE Loan',
-                    'UCO Suryodhaya Loan Scheme',
-                    'West Bengal Bhabishyat Credit crad WBBCC Scheme',
-                    'Working Capital UCO Bank',
-                  ],
-                ),
                 Dropdown(
                   controlName: 'subcategory',
                   label: 'Sub Category',
@@ -76,7 +36,11 @@ class LoanDetailsPage extends StatelessWidget {
                   label: 'Loan Product',
                   items: ['', ''],
                 ),
-                IntegerTextField('loanamount', 'Loan Amount Requested(₹)'),
+                IntegerTextField(
+                  controlName: 'loanamount',
+                  label: 'Loan Amount Requested(₹)',
+                  mantatory: true,
+                ),
                 Center(
                   child: ElevatedButton(
                     onPressed: () {

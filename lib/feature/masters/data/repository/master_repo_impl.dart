@@ -12,11 +12,13 @@ import 'package:newsee/core/api/http_connection_failure.dart';
 import 'package:newsee/core/api/http_exception_parser.dart';
 import 'package:newsee/core/db/db_config.dart';
 import 'package:newsee/feature/masters/data/datasource/masters_remote_datasource.dart';
+import 'package:newsee/feature/masters/data/repository/geography_parser_impl.dart';
 import 'package:newsee/feature/masters/data/repository/lov_parser_impl.dart';
 import 'package:newsee/feature/masters/data/repository/product_master_parser_impl.dart';
 import 'package:newsee/feature/masters/data/repository/product_parser_impl.dart';
 import 'package:newsee/feature/masters/data/repository/productschema_parser_impl.dart';
 import 'package:newsee/feature/masters/data/repository/statecity_parser_impl.dart';
+import 'package:newsee/feature/masters/domain/modal/geography_master.dart';
 import 'package:newsee/feature/masters/domain/modal/lov.dart';
 import 'package:newsee/feature/masters/domain/modal/master_request.dart';
 import 'package:newsee/feature/masters/domain/modal/master_response.dart';
@@ -26,6 +28,7 @@ import 'package:newsee/feature/masters/domain/modal/product.dart';
 import 'package:newsee/feature/masters/domain/modal/product_master.dart';
 import 'package:newsee/feature/masters/domain/modal/productschema.dart';
 import 'package:newsee/feature/masters/domain/modal/statecitymaster.dart';
+import 'package:newsee/feature/masters/domain/repository/geographymaster_crud_repo.dart';
 import 'package:newsee/feature/masters/domain/repository/lov_crud_repo.dart';
 import 'package:newsee/feature/masters/domain/repository/master_repo.dart';
 import 'package:newsee/feature/masters/domain/repository/masterversion_crud_repo.dart';
@@ -283,18 +286,18 @@ class MasterRepoImpl extends MasterRepo {
           final String masterNameFromResponse =
               ApiConstants.master_key_statecity;
 
-          List<Statecitymaster> statecityList = StatecityParserImpl()
+          List<GeographyMaster> statecityList = GeographyParserImpl()
               .parseResponse(response);
-          print("statecityList is printing here => $statecityList");
+          print("GeographyMaster is printing here => $statecityList");
           if (statecityList.isNotEmpty) {
-            Iterator<Statecitymaster> it = statecityList.iterator;
-            StatecityMasterCrudRepo statecityMasterCrudRepo =
-                StatecityMasterCrudRepo(db);
+            Iterator<GeographyMaster> it = statecityList.iterator;
+            GeographymasterCrudRepo statecityMasterCrudRepo =
+                GeographymasterCrudRepo(db);
             while (it.moveNext()) {
               statecityMasterCrudRepo.save(it.current);
             }
             print('State city list saved in db successfully... ');
-            List<Statecitymaster> p = await statecityMasterCrudRepo.getAll();
+            List<GeographyMaster> p = await statecityMasterCrudRepo.getAll();
 
             await updateMasterVersion(
               db,
@@ -307,7 +310,7 @@ class MasterRepoImpl extends MasterRepo {
               "Master Name: $masterNameFromResponse, Version: $versionFromResponse, Success",
             );
 
-            print('productSchemaCrudRepo.getAll() => ${p.length}');
+            print('GeographyMaster.getAll() => ${p.length}');
 
             masterResponse = MasterResponse(
               master: statecityList,

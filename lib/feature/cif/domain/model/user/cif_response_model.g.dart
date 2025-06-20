@@ -2,7 +2,9 @@
 
 part of 'cif_response_model.dart';
 
+// **************************************************************************
 // JsonSerializableGenerator
+// **************************************************************************
 
 CifResponseModel _$CifResponseModelFromJson(Map<String, dynamic> json) =>
     CifResponseModel(

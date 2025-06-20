@@ -82,23 +82,46 @@ class PersonalDetailsPage extends StatelessWidget {
                     'SHEIKH',
                     'SIR',
                   ],
+                  selItem: () {},
                 ),
-                IntegerTextField('mobilenumber', 'Mobile Number'),
-                CustomTextField('emailid', 'Email Id'),
-                CustomTextField('address', 'Address'),
-                CustomTextField('addressline1', 'Address Line 1'),
+                IntegerTextField(
+                  controlName: 'mobilenumber',
+                  label: 'Mobile Number',
+                  mantatory: true,
+                  maxlength: 10,
+                ),
+                CustomTextField(
+                  controlName: 'emailid',
+                  label: 'Email Id',
+                  mantatory: true,
+                ),
+                CustomTextField(
+                  controlName: 'address',
+                  label: 'Address',
+                  mantatory: true,
+                ),
+                CustomTextField(
+                  controlName: 'addressline1',
+                  label: 'Address Line 1',
+                  mantatory: true,
+                ),
                 SearchableDropdown(
                   controlName: 'state',
                   label: 'State',
                   items: ['Tamil Nadu', 'Kerala', 'Karnataka'],
+                  selItem: () {},
                 ),
                 SearchableDropdown(
                   controlName: 'city',
                   label: 'City',
                   items: ['Chennai', 'Madurai', 'Bangalore'],
+                  selItem: () {},
                 ),
-                IntegerTextField('pincode', 'Pincode'),
-
+                IntegerTextField(
+                  controlName: 'pincode',
+                  label: 'Pincode',
+                  mantatory: true,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(

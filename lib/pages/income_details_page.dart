@@ -44,17 +44,35 @@ class IncomeDetailsPage extends StatelessWidget {
                   ],
                 ),
                 IntegerTextField(
-                  'grossincome',
-                  'Gross Income/Salary(₹) (Per Month)',
+                  controlName: 'grossincome',
+                  label: 'Gross Income/Salary(₹) (Per Month)',
+                  mantatory: true,
                 ),
                 IntegerTextField(
-                  'grossmonthly',
-                  'Gross Monthly Deductions(₹) (Per Month)',
+                  controlName: 'grossmonthly',
+                  label: 'Gross Monthly Deductions(₹) (Per Month)',
+                  mantatory: true,
                 ),
-                IntegerTextField('netincome', 'Net Income(₹) (Per Year)'),
-                IntegerTextField('networth', 'Networth of the Applicant(₹)'),
-                CustomTextField('company', 'Company'),
-                IntegerTextField('totalyears', 'Total Years of Employment'),
+                IntegerTextField(
+                  controlName: 'netincome',
+                  label: 'Net Income(₹) (Per Year)',
+                  mantatory: true,
+                ),
+                IntegerTextField(
+                  controlName: 'networth',
+                  label: 'Networth of the Applicant(₹)',
+                  mantatory: true,
+                ),
+                CustomTextField(
+                  controlName: 'company',
+                  label: 'Company',
+                  mantatory: true,
+                ),
+                IntegerTextField(
+                  controlName: 'totalyears',
+                  label: 'Total Years of Employment',
+                  mantatory: true,
+                ),
                 Center(
                   child: ElevatedButton(
                     onPressed: () {

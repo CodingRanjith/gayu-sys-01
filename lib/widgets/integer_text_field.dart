@@ -5,24 +5,25 @@
 */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:newsee/pages/rupeeformatter.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class IntegerTextField extends StatelessWidget {
   final String controlName;
   final String label;
+  final bool mantatory;
+  final int? maxlength;
+  final int? minlength;
+  final bool isRupeeFormat;
 
-  const IntegerTextField(this.controlName, this.label);
-
-  /* Returns the maximum number of digits allowed. If the field is for 'mobilenumber',
-  restricted to 10 digits.*/
-
-  int getMaxLength() {
-    if (controlName == 'mobilenumber') return 10;
-    if (controlName == 'pincode') return 6;
-    if (controlName == 'aadharno') return 12;
-    return 15;
-  }
+  IntegerTextField({
+    required this.controlName,
+    required this.label,
+    required this.mantatory,
+    this.maxlength,
+    this.minlength,
+    this.isRupeeFormat = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +32,18 @@ class IntegerTextField extends StatelessWidget {
       child: ReactiveTextField<String>(
         formControlName: controlName,
         keyboardType: TextInputType.number,
-        inputFormatters: [
-          FilteringTextInputFormatter.digitsOnly,
-          LengthLimitingTextInputFormatter(getMaxLength()),
-        ],
+        maxLength: maxlength,
+        inputFormatters: [if (isRupeeFormat) Rupeeformatter()],
         decoration: InputDecoration(
           label: RichText(
             text: TextSpan(
               text: label,
               style: TextStyle(color: Colors.black, fontSize: 16),
               children: [
-                TextSpan(text: ' *', style: TextStyle(color: Colors.red)),
+                TextSpan(
+                  text: mantatory ? ' *' : '',
+                  style: TextStyle(color: Colors.red),
+                ),
               ],
             ),
           ),
@@ -49,6 +51,10 @@ class IntegerTextField extends StatelessWidget {
         validationMessages: {
           ValidationMessage.required: (error) => '$label is required',
           ValidationMessage.pattern: (error) => 'Valid $label is required',
+          ValidationMessage.maxLength:
+              (error) => 'Maximum $maxlength numbers only allowed',
+          ValidationMessage.minLength:
+              (error) => 'Minimum $minlength numbers required',
         },
       ),
     );

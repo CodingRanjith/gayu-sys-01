@@ -18,10 +18,9 @@ class CifResponseModel {
   final String cifFlag;
   final bool CBS;
   final String resitype;
-  final Map<String,dynamic> lpretLeadDetails;
+  final Map<String, dynamic> lpretLeadDetails;
   final String remarks;
   final bool shgFlag;
-
 
   CifResponseModel({
     required this.staffFlag,
@@ -38,7 +37,7 @@ class CifResponseModel {
     String? cifFlag,
     bool? CBS,
     String? resitype,
-    Map<String,dynamic>? lpretLeadDetails,
+    Map<String, dynamic>? lpretLeadDetails,
     String? remarks,
     bool? shgFlag,
   }) {
@@ -49,7 +48,7 @@ class CifResponseModel {
       resitype: resitype ?? this.resitype,
       lpretLeadDetails: lpretLeadDetails ?? this.lpretLeadDetails,
       remarks: remarks ?? this.remarks,
-      shgFlag: shgFlag ?? this.shgFlag
+      shgFlag: shgFlag ?? this.shgFlag,
     );
   }
 
@@ -65,14 +64,15 @@ class CifResponseModel {
     };
   }
 
-
   factory CifResponseModel.fromMap(Map<String, dynamic> map) {
     return CifResponseModel(
       staffFlag: map['staffFlag'] as String,
       cifFlag: map['cifFlga'] as String,
       CBS: map['CBS'] as bool,
       resitype: map['resitype'] as String,
-      lpretLeadDetails: Map<String,dynamic>.from((map['lpretLeadDetails'] as Map<String,dynamic>)),
+      lpretLeadDetails: Map<String, dynamic>.from(
+        (map['lpretLeadDetails'] as Map<String, dynamic>),
+      ),
       remarks: map['remarks'] as String,
       shgFlag: map['shgFlag'] as bool,
     );
@@ -80,7 +80,8 @@ class CifResponseModel {
 
   Map<String, dynamic> toJson() => _$CifResponseModelToJson(this);
 
-  factory CifResponseModel.fromJson(Map<String, dynamic> source) => _$CifResponseModelFromJson(source);
+  factory CifResponseModel.fromJson(Map<String, dynamic> source) =>
+      _$CifResponseModelFromJson(source);
 
   @override
   String toString() {
@@ -90,25 +91,24 @@ class CifResponseModel {
   @override
   bool operator ==(covariant CifResponseModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.staffFlag == staffFlag &&
-      other.cifFlag == cifFlag &&
-      other.CBS == CBS &&
-      other.resitype == resitype &&
-      mapEquals(other.lpretLeadDetails, lpretLeadDetails) &&
-      other.remarks == remarks &&
-      other.shgFlag == shgFlag;
+
+    return other.staffFlag == staffFlag &&
+        other.cifFlag == cifFlag &&
+        other.CBS == CBS &&
+        other.resitype == resitype &&
+        mapEquals(other.lpretLeadDetails, lpretLeadDetails) &&
+        other.remarks == remarks &&
+        other.shgFlag == shgFlag;
   }
 
   @override
   int get hashCode {
     return staffFlag.hashCode ^
-      cifFlag.hashCode ^
-      CBS.hashCode ^
-      resitype.hashCode ^
-      lpretLeadDetails.hashCode ^
-      remarks.hashCode ^
-      shgFlag.hashCode;
+        cifFlag.hashCode ^
+        CBS.hashCode ^
+        resitype.hashCode ^
+        lpretLeadDetails.hashCode ^
+        remarks.hashCode ^
+        shgFlag.hashCode;
   }
 }

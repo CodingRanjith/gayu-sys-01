@@ -1,4 +1,3 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsee/feature/cif/data/repository/cif_respository_impl.dart';
 import 'package:newsee/feature/cif/domain/model/user/cif_request.dart';
@@ -9,12 +8,11 @@ part 'cif_event.dart';
 part 'cif_state.dart';
 
 final class CifBloc extends Bloc<CifEvent, CifState> {
-
-  CifBloc():super(CifState()) {
-    on<SearchCifEvent>(_onSearchCif);
+  CifBloc() : super(CifState()) {
+    on<SearchingCifEvent>(_onSearchCif);
   }
 
-  Future _onSearchCif(SearchCifEvent event, Emitter<CifState> emit) async {
+  Future _onSearchCif(SearchingCifEvent event, Emitter<CifState> emit) async {
     emit(state.copyWith(status: CifStatus.loading));
     CifRepository dedupeRepository = CifRepositoryImpl();
     final response = await dedupeRepository.searchCif(event.request);
@@ -22,8 +20,8 @@ final class CifBloc extends Bloc<CifEvent, CifState> {
       emit(
         state.copyWith(
           status: CifStatus.success,
-          cifResponseModel: response.right,
-        )
+          // cifResponseModel: response.right,
+        ),
       );
     } else {
       print('cif failure response.left ');
@@ -35,6 +33,4 @@ final class CifBloc extends Bloc<CifEvent, CifState> {
       );
     }
   }
-
-
 }

@@ -16,11 +16,7 @@ class DedupeResponse {
     required this.remarks,
   });
 
-  DedupeResponse copyWith({
-    bool? CBS,
-    bool? remarksFlag,
-    String? remarks,
-  }) {
+  DedupeResponse copyWith({bool? CBS, bool? remarksFlag, String? remarks}) {
     return DedupeResponse(
       CBS: CBS ?? this.CBS,
       remarksFlag: remarksFlag ?? this.remarksFlag,
@@ -44,21 +40,22 @@ class DedupeResponse {
     );
   }
 
-  Map<String, dynamic> toJson() => _$DeduperesponseToJson(this);
+  Map<String, dynamic> toJson() => _$DedupeResponseToJson(this);
 
-  factory DedupeResponse.fromJson(Map<String, dynamic> source) => _$DeduperesponseFromJson(source);
+  factory DedupeResponse.fromJson(Map<String, dynamic> source) =>
+      _$DedupeResponseFromJson(source);
 
   @override
-  String toString() => 'DedupeResponse(CBS: $CBS, remarksFlag: $remarksFlag, remarks: $remarks)';
+  String toString() =>
+      'DedupeResponse(CBS: $CBS, remarksFlag: $remarksFlag, remarks: $remarks)';
 
   @override
   bool operator ==(covariant DedupeResponse other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.CBS == CBS &&
-      other.remarksFlag == remarksFlag &&
-      other.remarks == remarks;
+
+    return other.CBS == CBS &&
+        other.remarksFlag == remarksFlag &&
+        other.remarks == remarks;
   }
 
   @override

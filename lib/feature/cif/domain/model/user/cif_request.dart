@@ -1,5 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // CIF Request Data Class
+
+/*
+  @author     : gayathri.b 05/06/2025
+ @description: Represents the request payload for the lead search API.
+   */
 import 'dart:convert';
 
 import 'package:newsee/core/api/api_config.dart';
@@ -17,7 +22,6 @@ class CIFRequest {
     this.type,
     this.token,
   });
-  
 
   CIFRequest copyWith({
     String? custId,
@@ -57,5 +61,6 @@ class CIFRequest {
 
   String toJson() => json.encode(toMap());
 
-  factory CIFRequest.fromJson(String source) => CIFRequest.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CIFRequest.fromJson(String source) =>
+      CIFRequest.fromMap(json.decode(source) as Map<String, dynamic>);
 }

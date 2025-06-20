@@ -102,6 +102,7 @@ class MastersPage extends StatelessWidget {
                 case MasterTypes.statecitymaster:
                   // state and city master completed , fetching productschema
                   // set completedMasters to 3
+
                   updateDownloadProgress(3);
                   print('progress completed => $progress');
                   context.read<MastersBloc>().add(
@@ -126,10 +127,8 @@ class MastersPage extends StatelessWidget {
           },
           child: BlocBuilder<MastersBloc, MastersState>(
             builder: (context, state) {
-              return DownloadProgressWidget(
-                downloadProgress: progress,
-                scrwidth: scrwidth,
-                scrheight: scrheight,
+              return SafeArea(
+                child: DownloadProgressWidget(downloadProgress: progress),
               );
             },
           ),

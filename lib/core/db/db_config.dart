@@ -6,6 +6,7 @@
  */
 
 import 'package:newsee/AppData/DBConstants/dbconstants.dart';
+import 'package:newsee/AppData/DBConstants/table_key_geographymaster.dart';
 import 'package:newsee/AppData/DBConstants/table_key_products.dart';
 import 'package:newsee/AppData/DBConstants/table_key_productschema.dart';
 import 'package:newsee/AppData/DBConstants/table_key_statecitymaster.dart';
@@ -38,6 +39,13 @@ class DBConfig {
     try {
       // create table sequentially
 
+      /* 
+      @modified  :  karthick.d  11/06/2025
+      @desc      :  statecitymastertable create query deleted 
+                    (due to ease of processing , statecitymaster respons is changed)
+                    so statecitymaster.dart become obsolete
+
+      */
       await db.execute(TableKeysLov.createTableQuery);
       printTableCreateSuccess(TableKeysLov.tableName);
       await db.execute(TableKeysProductSchema.createTableQuery);
@@ -48,8 +56,8 @@ class DBConfig {
       printTableCreateSuccess(TableKeysProductMaster.tableName);
       await db.execute(TableKeyMasterversion.createTableQuery);
       printTableCreateSuccess(TableKeyMasterversion.tableName);
-      await db.execute(TableKeyStatecitymaster.createTableQuery);
-      printTableCreateSuccess(TableKeyStatecitymaster.tableName);
+      await db.execute(TableKeysGeographyMaster.createTableQuery);
+      printTableCreateSuccess(TableKeysGeographyMaster.tableName);
     } catch (e) {
       // db creation failure - > log u r exception
 
