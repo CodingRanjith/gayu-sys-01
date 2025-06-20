@@ -4,16 +4,8 @@ import 'package:newsee/widgets/custom_text_field.dart';
 import 'package:newsee/widgets/drop_down.dart';
 import 'package:newsee/widgets/radio.dart';
 
-class LandInfoFormPage extends StatefulWidget {
+class LandInfoFormPage extends StatelessWidget {
   final String title;
-
-  const LandInfoFormPage({required this.title, super.key});
-
-  @override
-  State<LandInfoFormPage> createState() => _LandInfoFormPageState();
-}
-
-class _LandInfoFormPageState extends State<LandInfoFormPage> {
   final FormGroup form = FormGroup({
     'applicantName': FormControl<String>(validators: [Validators.required]),
     'locationOfFarm': FormControl<String>(validators: [Validators.required]),
@@ -40,24 +32,61 @@ class _LandInfoFormPageState extends State<LandInfoFormPage> {
     'landAgriActive': FormControl<String>(validators: [Validators.required]),
   });
 
-  int step = 0;
+  final ValueNotifier<List<Map<String, dynamic>>> entryListNotifier =
+      ValueNotifier<List<Map<String, dynamic>>>([]);
 
-  void handleSubmit() {
+  LandInfoFormPage({super.key, required this.title});
+
+  void handleSubmit(BuildContext context) {
     if (form.valid) {
-      print("Form Submitted with: ${form.value}");
-      setState(() {
-        step++;
-        form.reset();
-      });
+      entryListNotifier.value = [...entryListNotifier.value, form.value];
+      form.reset();
     } else {
       form.markAllAsTouched();
     }
   }
 
+  void showBottomSheet(BuildContext context) {
+    final entries = entryListNotifier.value;
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder:
+          (_) => SizedBox(
+            height: 300,
+            child:
+                entries.isEmpty
+                    ? const Center(child: Text('No saved entries.'))
+                    : ListView.separated(
+                      padding: const EdgeInsets.all(16),
+                      itemCount: entries.length,
+                      separatorBuilder: (_, __) => const Divider(),
+                      itemBuilder: (ctx, index) {
+                        final item = entries[index];
+                        return ListTile(
+                          title: Text(item['applicantName'] ?? ''),
+                          subtitle: Text(item['locationOfFarm'] ?? ''),
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                          ),
+                          onTap: () {
+                            Navigator.pop(context);
+                            form.patchValue(item);
+                          },
+                        );
+                      },
+                    ),
+          ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Land Holding Details")),
+      appBar: AppBar(title: Text(title)),
       body: ReactiveForm(
         formGroup: form,
         child: SafeArea(
@@ -173,34 +202,71 @@ class _LandInfoFormPageState extends State<LandInfoFormPage> {
                 bottom: 16,
                 left: 0,
                 right: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: handleSubmit,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 12,
-                        ),
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: () => handleSubmit(context),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 14,
                       ),
-                      child: const Text('Next'),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      backgroundColor: Colors.blue,
                     ),
-                    const SizedBox(width: 12),
-                    CircleAvatar(
-                      radius: 18,
-                      backgroundColor: Colors.blueAccent,
-                      child: Text(
-                        '$step',
-                        style: const TextStyle(color: Colors.white),
+                    child: const Text(
+                      'Save',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ],
           ),
         ),
+      ),
+      floatingActionButton: ValueListenableBuilder<List<Map<String, dynamic>>>(
+        valueListenable: entryListNotifier,
+        builder:
+            (_, entries, __) => FloatingActionButton(
+              heroTag: 'view_button',
+              backgroundColor: Colors.white,
+              onPressed: () => showBottomSheet(context),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  const Icon(
+                    Icons.remove_red_eye,
+                    color: Colors.blue,
+                    size: 28,
+                  ),
+                  if (entries.isNotEmpty)
+                    Positioned(
+                      top: 4,
+                      right: 4,
+                      child: Container(
+                        padding: const EdgeInsets.all(3),
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Text(
+                          '${entries.length}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
       ),
     );
   }
