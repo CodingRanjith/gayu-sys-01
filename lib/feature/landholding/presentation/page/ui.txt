@@ -17,25 +17,25 @@ class LandInfoFormPage extends StatelessWidget {
     'state': FormControl<String>(validators: [Validators.required]),
     'taluk': FormControl<String>(validators: [Validators.required]),
     'firka': FormControl<String>(
-      validators: [Validators.required, Validators.pattern(r'^\d+$')],
+      validators: [Validators.required, Validators.pattern(r'^\d+\$')],
     ),
     'totalAcreage': FormControl<String>(
-      validators: [Validators.required, Validators.pattern(r'^\d+$')],
+      validators: [Validators.required, Validators.pattern(r'^\d+\$')],
     ),
     'irrigatedLand': FormControl<String>(
-      validators: [Validators.required, Validators.pattern(r'^\d+$')],
+      validators: [Validators.required, Validators.pattern(r'^\d+\$')],
     ),
-    'compactBlocks': FormControl<bool>(validators: [Validators.required]),
+    'compactBlocks': FormControl<String>(validators: [Validators.required]),
     'landOwnedByApplicant': FormControl<bool>(
       validators: [Validators.required],
     ),
     'distanceFromBranch': FormControl<String>(
-      validators: [Validators.required, Validators.pattern(r'^\d+$')],
+      validators: [Validators.required, Validators.pattern(r'^\d+\$')],
     ),
     'district': FormControl<String>(validators: [Validators.required]),
     'village': FormControl<String>(validators: [Validators.required]),
     'surveyNo': FormControl<String>(
-      validators: [Validators.required, Validators.pattern(r'^\d+$')],
+      validators: [Validators.required, Validators.pattern(r'^\d+\$')],
     ),
     'natureOfRight': FormControl<String>(validators: [Validators.required]),
     'irrigationFacilities': FormControl<String>(
@@ -180,11 +180,10 @@ class LandInfoFormPage extends StatelessWidget {
                                     label: 'Irrigated Land (in Acres)',
                                     mantatory: true,
                                   ),
-                                  RadioButton(
-                                    'Land owned by the Applicant',
-                                    'compactBlocks',
-                                    'Yes',
-                                    'No',
+                                  Dropdown(
+                                    controlName: 'compactBlocks',
+                                    label: 'Lands situated in compact blocks',
+                                    items: ['--Select--', 'Yes', 'No'],
                                   ),
                                   RadioButton(
                                     'Land owned by the Applicant',

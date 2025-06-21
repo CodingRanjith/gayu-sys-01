@@ -7,13 +7,22 @@ abstract class LandHoldingEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadInitialLandHolding extends LandHoldingEvent {}
+class LandHoldingInitEvent extends LandHoldingEvent {}
 
-class SubmitLandHoldingForm extends LandHoldingEvent {
-  final LandHoldingRequest request;
+class LandDetailsSaveEvent extends LandHoldingEvent {
+  final LandData landData;
 
-  const SubmitLandHoldingForm(this.request);
+  const LandDetailsSaveEvent({required this.landData});
 
   @override
-  List<Object?> get props => [request];
+  List<Object?> get props => [landData];
+}
+
+class LandDetailsLoadEvent extends LandHoldingEvent {
+  final LandData landData;
+
+  const LandDetailsLoadEvent({required this.landData});
+
+  @override
+  List<Object?> get props => [landData];
 }

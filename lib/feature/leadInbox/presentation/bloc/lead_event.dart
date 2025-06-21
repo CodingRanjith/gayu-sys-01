@@ -13,4 +13,3 @@ class SearchLeadEvent extends LeadEvent {
   @override
   List<Object?> get props => [request];
 }
- 
