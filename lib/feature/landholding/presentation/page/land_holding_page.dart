@@ -43,6 +43,9 @@ class LandInfoFormPage extends StatelessWidget {
     ),
     'affectedByCeiling': FormControl<bool>(validators: [Validators.required]),
     'landAgriActive': FormControl<bool>(validators: [Validators.required]),
+    'villageOfficerCertified': FormControl<bool>(
+      validators: [Validators.required],
+    ),
   });
 
   LandInfoFormPage({super.key, required this.title});
@@ -177,12 +180,19 @@ class LandInfoFormPage extends StatelessWidget {
                                   ),
                                   IntegerTextField(
                                     controlName: 'irrigatedLand',
-                                    label: 'Irrigated Land (in Acres)',
+                                    label:
+                                        'Out of Total acreage, how much is the Irrigated Land (in Acres)',
                                     mantatory: true,
                                   ),
                                   RadioButton(
-                                    'Land owned by the Applicant',
+                                    'Lands situated in compact blocks',
                                     'compactBlocks',
+                                    'Yes',
+                                    'No',
+                                  ),
+                                  RadioButton(
+                                    'Do the particulars of the holdings given in the application tally with the particulars given in village officers certificate',
+                                    'villageOfficerCertified',
                                     'Yes',
                                     'No',
                                   ),
@@ -238,7 +248,7 @@ class LandInfoFormPage extends StatelessWidget {
                                     ],
                                   ),
                                   RadioButton(
-                                    'Affected by land ceiling enactments',
+                                    'Are the Holdings in any way affected by land ceiling enactments',
                                     'affectedByCeiling',
                                     'Yes',
                                     'No',
@@ -263,7 +273,7 @@ class LandInfoFormPage extends StatelessWidget {
                       child: Center(
                         child: ElevatedButton.icon(
                           onPressed: () => handleSubmit(context, state),
-                          icon: const Icon(Icons.save),
+                          icon: const Icon(Icons.save, color: Colors.white),
                           label: const Text(
                             'Save',
                             style: TextStyle(
@@ -272,7 +282,12 @@ class LandInfoFormPage extends StatelessWidget {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
+                            backgroundColor: const Color.fromARGB(
+                              212,
+                              5,
+                              8,
+                              205,
+                            ),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 32,
                               vertical: 14,
@@ -286,7 +301,7 @@ class LandInfoFormPage extends StatelessWidget {
                     ),
                     Positioned(
                       bottom: 90,
-                      right: 16,
+                      right: 80,
                       child: FloatingActionButton(
                         heroTag: 'view_button',
                         backgroundColor: Colors.white,

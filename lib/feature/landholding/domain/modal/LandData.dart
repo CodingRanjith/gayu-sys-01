@@ -8,7 +8,7 @@ class LandData extends Equatable {
   final String firka;
   final String totalAcreage;
   final String irrigatedLand;
-  final bool compactBlocks; // ✅ updated
+  final bool compactBlocks;
   final bool landOwnedByApplicant;
   final String distanceFromBranch;
   final String district;
@@ -18,6 +18,7 @@ class LandData extends Equatable {
   final String irrigationFacilities;
   final bool affectedByCeiling;
   final bool landAgriActive;
+  final bool villageOfficerCertified;
 
   const LandData({
     required this.applicantName,
@@ -37,6 +38,7 @@ class LandData extends Equatable {
     required this.irrigationFacilities,
     required this.affectedByCeiling,
     required this.landAgriActive,
+    required this.villageOfficerCertified,
   });
 
   factory LandData.fromForm(Map<String, dynamic> form) {
@@ -48,7 +50,7 @@ class LandData extends Equatable {
       firka: form['firka'] ?? '',
       totalAcreage: form['totalAcreage'] ?? '',
       irrigatedLand: form['irrigatedLand'] ?? '',
-      compactBlocks: form['compactBlocks'] ?? false, // ✅ updated
+      compactBlocks: form['compactBlocks'] ?? false,
       landOwnedByApplicant: form['landOwnedByApplicant'] ?? false,
       distanceFromBranch: form['distanceFromBranch'] ?? '',
       district: form['district'] ?? '',
@@ -58,6 +60,7 @@ class LandData extends Equatable {
       irrigationFacilities: form['irrigationFacilities'] ?? '',
       affectedByCeiling: form['affectedByCeiling'] ?? false,
       landAgriActive: form['landAgriActive'] ?? false,
+      villageOfficerCertified: form['villageOfficerCertified'] ?? false,
     );
   }
 
@@ -70,8 +73,7 @@ class LandData extends Equatable {
       firka: map['firka'] ?? '',
       totalAcreage: map['totalAcreage'] ?? '',
       irrigatedLand: map['irrigatedLand'] ?? '',
-      compactBlocks:
-          map['compactBlocks'] == true || map['compactBlocks'] == 1, // ✅
+      compactBlocks: map['compactBlocks'] == true || map['compactBlocks'] == 1,
       landOwnedByApplicant:
           map['landOwnedByApplicant'] == true ||
           map['landOwnedByApplicant'] == 1,
@@ -85,6 +87,9 @@ class LandData extends Equatable {
           map['affectedByCeiling'] == true || map['affectedByCeiling'] == 1,
       landAgriActive:
           map['landAgriActive'] == true || map['landAgriActive'] == 1,
+      villageOfficerCertified:
+          map['villageOfficerCertified'] == true ||
+          map['villageOfficerCertified'] == 1,
     );
   }
 
@@ -97,7 +102,7 @@ class LandData extends Equatable {
       'firka': firka,
       'totalAcreage': totalAcreage,
       'irrigatedLand': irrigatedLand,
-      'compactBlocks': compactBlocks, // ✅ updated
+      'compactBlocks': compactBlocks,
       'landOwnedByApplicant': landOwnedByApplicant,
       'distanceFromBranch': distanceFromBranch,
       'district': district,
@@ -107,6 +112,7 @@ class LandData extends Equatable {
       'irrigationFacilities': irrigationFacilities,
       'affectedByCeiling': affectedByCeiling,
       'landAgriActive': landAgriActive,
+      'villageOfficerCertified': villageOfficerCertified,
     };
   }
 
@@ -129,5 +135,6 @@ class LandData extends Equatable {
     irrigationFacilities,
     affectedByCeiling,
     landAgriActive,
+    villageOfficerCertified,
   ];
 }
